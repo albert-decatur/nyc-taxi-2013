@@ -4,13 +4,28 @@
 # this is sha1sum without no field separators between these fields
 # assumes you've downloaded the zips first
 # NB: assumes the field positions in the dataset! totally brittle
+# user args: 1) input url list for zips
+
+# download each zip
+wget -ci $1
+
+# unzip each zip
+for i in *.zip
+do
+	unzip $i
+	rm $i
+done
 
 # for each trip_data csv, grab header, put aside, add ID field based on SHA1SUM, put header back on, write to original file
 for trip_data in trip_data_*.csv
 do 
 	header=$( 
 		cat $trip_data |\
-		head -n 1
+		head -n 1 |\
+		# no whitespace
+		sed 's:\s*::g' |\
+		# add ID field name
+		sed 's:^:trip_ID,:g'
 	)
 	cat $trip_data |\
 	sed '1d' |\
@@ -29,7 +44,11 @@ for trip_fare in trip_fare_*.csv
 do 
 	header=$( 
 		cat $trip_fare |\
-		head -n 1
+		head -n 1 |\
+		# no whitespace
+		sed 's:\s*::g' |\
+		# add ID field name
+		sed 's:^:trip_ID,:g'
 	)
 	cat $trip_fare |\
 	sed '1d' |\
