@@ -1,5 +1,5 @@
 https://nyctaxitrips.blob.core.windows.net/data/trip_data_1.csv.zip
-#https://nyctaxitrips.blob.core.windows.net/data/trip_data_2.csv.zip
+https://nyctaxitrips.blob.core.windows.net/data/trip_data_2.csv.zip
 #https://nyctaxitrips.blob.core.windows.net/data/trip_data_3.csv.zip
 #https://nyctaxitrips.blob.core.windows.net/data/trip_data_4.csv.zip
 #https://nyctaxitrips.blob.core.windows.net/data/trip_data_5.csv.zip
@@ -11,7 +11,7 @@ https://nyctaxitrips.blob.core.windows.net/data/trip_data_1.csv.zip
 #https://nyctaxitrips.blob.core.windows.net/data/trip_data_11.csv.zip
 #https://nyctaxitrips.blob.core.windows.net/data/trip_data_12.csv.zip
 https://nyctaxitrips.blob.core.windows.net/data/trip_fare_1.csv.zip
-#https://nyctaxitrips.blob.core.windows.net/data/trip_fare_2.csv.zip
+https://nyctaxitrips.blob.core.windows.net/data/trip_fare_2.csv.zip
 #https://nyctaxitrips.blob.core.windows.net/data/trip_fare_3.csv.zip
 #https://nyctaxitrips.blob.core.windows.net/data/trip_fare_4.csv.zip
 #https://nyctaxitrips.blob.core.windows.net/data/trip_fare_5.csv.zip
