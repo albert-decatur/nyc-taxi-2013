@@ -89,5 +89,5 @@ specific_header trip > $outtrip
 mk_sha1sum_id trip 1 2 6 $outtrip
 # same as for trip csvs, but use different field numbers for the same fields
 outfare=../output/fare.csv
-specific_header trip > $outfare
+specific_header fare > $outfare
 mk_sha1sum_id fare 1 2 4 $outfare
