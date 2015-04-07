@@ -50,6 +50,8 @@ function specific_header {
 # and clean up tmp csv
 function mk_sha1sum_id {
 	# for each csv add ID field based on SHA1SUM
+	# just in case output exists, remove it
+	rm $5 2>/dev/null
 	for i in ${1}*.csv
 	do 
 		cat $i |\
@@ -70,17 +72,22 @@ function mk_sha1sum_id {
 				print sha1sum,$0;\
 				close (cmd)
 			}
-		' > $5
+		' >> $5
 	## clean up csvs
 	# rm $i
 	done
 }
 
-#download_each $1
-#unzip_each
-
-
+# download the files listed by the user arg txt
+download_each $1
+# unzip the downloaded files
+unzip_each
 # for trip csvs, use fields 1,2, and 6 as your medallion,hack_license,pickup_datetime
-mk_sha1sum_id trip 1 2 6 ../output/trip.csv
+# make the header first, then append each csv as you process it to the output
+outtrip=../output/trip.csv
+specific_header trip > $outtrip
+mk_sha1sum_id trip 1 2 6 $outtrip
 # same as for trip csvs, but use different field numbers for the same fields
-mk_sha1sum_id fare 1 2 4 ../output/fare.csv
+outfare=../output/fare.csv
+specific_header trip > $outfare
+mk_sha1sum_id fare 1 2 4 $outfare
